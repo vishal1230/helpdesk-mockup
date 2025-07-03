@@ -1,0 +1,29 @@
+{
+  "tickets": [
+    {
+      "id": "6f06",
+      "ticketNo": "dd",
+      "date": "2025-07-05",
+      "name": "dffddd",
+      "department": "dd",
+      "subject": "ffww",
+      "category": "dd",
+      "description": "d",
+      "type": "dd",
+      "priority": "dd",
+      "status": "Pending"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "test@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "782e",
+      "email": "vishal@gamil.com",
+      "password": "123"
+    }
+  ]
+}
