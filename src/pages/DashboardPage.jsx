@@ -7,11 +7,31 @@ const DashboardPage = () => {
   const [tickets, setTickets] = useState([]);
   const navigate = useNavigate();
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
     axios.get("http://localhost:5000/tickets").then((res) => {
       setTickets(res.data);
     });
-  }, []);
+  }, [navigate, user]);
+
+  // Update ticket status (admin only)
+  const handleStatusChange = async (id, newStatus) => {
+    try {
+      await axios.patch(`http://localhost:5000/tickets/${id}`, {
+        status: newStatus,
+      });
+      const updated = tickets.map((ticket) =>
+        ticket.id === id ? { ...ticket, status: newStatus } : ticket
+      );
+      setTickets(updated);
+    } catch (error) {
+      console.error("Error updating ticket:", error);
+    }
+  };
 
   // Calculate status counts
   const totalTickets = tickets.length;
@@ -100,6 +120,9 @@ const DashboardPage = () => {
                     <th className="text-left px-4 py-2 border">Ticket No.</th>
                     <th className="text-left px-4 py-2 border">Subject</th>
                     <th className="text-left px-4 py-2 border">Status</th>
+                    {user?.role === "admin" && (
+                      <th className="text-left px-4 py-2 border">Actions</th>
+                    )}
                   </tr>
                 </thead>
                 <tbody>
@@ -120,6 +143,34 @@ const DashboardPage = () => {
                           {ticket.status}
                         </span>
                       </td>
+                      {user?.role === "admin" && (
+                        <td className="px-4 py-2 border space-x-2">
+                          <button
+                            onClick={() =>
+                              handleStatusChange(ticket.id, "Pending")
+                            }
+                            className="text-xs bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded"
+                          >
+                            Pending
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleStatusChange(ticket.id, "In Progress")
+                            }
+                            className="text-xs bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                          >
+                            In Progress
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleStatusChange(ticket.id, "Resolved")
+                            }
+                            className="text-xs bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded"
+                          >
+                            Resolved
+                          </button>
+                        </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>

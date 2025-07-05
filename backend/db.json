@@ -1,29 +1,56 @@
 {
-  "tickets": [
-    {
-      "id": "6f06",
-      "ticketNo": "dd",
-      "date": "2025-07-05",
-      "name": "dffddd",
-      "department": "dd",
-      "subject": "ffww",
-      "category": "dd",
-      "description": "d",
-      "type": "dd",
-      "priority": "dd",
-      "status": "Pending"
-    }
-  ],
   "users": [
     {
       "id": "1",
-      "email": "test@example.com",
-      "password": "password123"
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
     },
     {
-      "id": "782e",
-      "email": "vishal@gamil.com",
-      "password": "123"
+      "id": "2",
+      "username": "user1",
+      "password": "user123",
+      "role": "user"
+    },
+    {
+      "id": "6a6a",
+      "email": "vishal1@gmail.com",
+      "password": "vishal1",
+      "role": "admin"
+    },
+    {
+      "id": "3f6d",
+      "email": "sachin@gmail.com",
+      "password": "sachin1",
+      "role": "user"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "b12c",
+      "ticketNo": "1",
+      "date": "2025-07-03",
+      "name": "sachin singh",
+      "department": "IT",
+      "subject": "Troubleshoot",
+      "category": "software",
+      "description": "wifi not connecting",
+      "type": "software",
+      "priority": "high",
+      "status": "Pending"
+    },
+    {
+      "id": "b12a",
+      "ticketNo": "2",
+      "date": "2025-07-04",
+      "name": "vishal yadav",
+      "department": "it",
+      "subject": "dev",
+      "category": "it",
+      "description": "problem",
+      "type": "sw",
+      "priority": "high",
+      "status": "Resolved"
     }
   ]
 }
