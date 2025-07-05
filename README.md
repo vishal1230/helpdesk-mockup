@@ -14,16 +14,32 @@ A simple React.js helpdesk system built as an internship assignment.
 ## ✨ Features
 
 ✅ User Sign In / Sign Up  
+✅ Role-Based Authentication (Admin / User)  
+✅ Admins can update ticket statuses (Pending / In Progress / Resolved)  
 ✅ Dashboard with:
 - Ticket list
-- Status badges (Pending / Resolved)
-- Ticket summary counters (Total / In Progress / Resolved)
+- Status badges (Pending / Resolved / In Progress)
+- Ticket summary counters (Total / In Progress / Resolved / Pending)
 
 ✅ Create new tickets  
-✅ Edit ticket status  
 ✅ Logout functionality  
 
+---
 
+## 🔐 Role-Based Authentication
+
+When you **sign up**, you can choose to create a **User** or **Admin** account.
+
+**✅ Admin Sign Up Key:**  
+To register as an Admin, enter this key in the **Admin Key field** during sign up:
+
+```
+ADMIN123
+```
+
+If you leave the key blank or incorrect, the account will default to a regular User.
+
+---
 
 ## ⚙️ Tech Stack
 
@@ -64,7 +80,7 @@ This will open [http://localhost:3000](http://localhost:3000)
 
 ### 🟢 Running the Backend API
 
-The backend uses [JSON Server](https://github.com/typicode/json-server) to mock ticket data.
+The backend uses [JSON Server](https://github.com/typicode/json-server) to mock user and ticket data.
 
 To start the API server:
 
@@ -82,8 +98,8 @@ Available endpoints:
 
 ## 🧪 Credentials
 
-This is a demo project.  
-✅ You can sign up with any email and password to log in.
+✅ **Sign Up with any email and password**  
+✅ To create an **Admin** account, enter `ADMIN123` as the Admin Key during sign up.
 
 ---
 
