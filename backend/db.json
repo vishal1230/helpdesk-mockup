@@ -23,6 +23,18 @@
       "email": "sachin@gmail.com",
       "password": "sachin1",
       "role": "user"
+    },
+    {
+      "id": "b885",
+      "email": "vikas@gmail.com",
+      "password": "vikas123",
+      "role": "admin"
+    },
+    {
+      "id": "9d1a",
+      "email": "vi2@gmail.com",
+      "password": "123456",
+      "role": "user"
     }
   ],
   "tickets": [
